@@ -1,8 +1,16 @@
 body {
+  width: 100vw;
+  height: 100vh;
   background-color: cornsilk;
 }
 
+header {
+  height: 150px;
+  background-color: darkgray;
+}
+
 .container {
+  margin: 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,4 +26,5 @@ body {
 }
 .container .btn {
   margin: 10px;
+  width: 120px;
 }/*# sourceMappingURL=style.css.map */

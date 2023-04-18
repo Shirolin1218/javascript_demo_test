@@ -10,7 +10,6 @@ const message = document.querySelector("#message");
 let max = 100;
 let min = 1;
 guessBtn.addEventListener("click", function () {
-
     console.log("click");
     let guess = guessInput.valueAsNumber;
     if (guess < max && guess > answer) {
@@ -26,6 +25,9 @@ guessBtn.addEventListener("click", function () {
     } else if (guess == answer) {
         range.textContent = "恭喜答對"
         message.textContent = "答案是" + answer;
+        guessBtn.textContent = "猜數字結束";
+        guessBtn.disabled = true;
+        guessInput.disabled = true;
     }
     else {
         message.textContent = "請輸入" + min + "-" + max + "的數字";
