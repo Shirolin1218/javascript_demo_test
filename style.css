@@ -1,0 +1,15 @@
+body {
+  background-color: cornsilk;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+  background-color: floralwhite;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=style.css.map */
