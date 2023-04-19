@@ -15,19 +15,12 @@ let min = 1;
 guessBtn.addEventListener("click", function () {
     console.log("click");
     let guess = guessInput.valueAsNumber;
-    if (guess < max && guess > answer) {
-        max = guess;
-        range.textContent = min + "-" + max;
-        message.textContent = "太大";
-        guessInput.valueAsNumber = null;
+    if (guess % 1 != 0) {
+        message.textContent = "請輸入整數";
+        guessInput.value = null;
         return;
-    } else if (guess > min && guess < answer) {
-        min = guess;
-        range.textContent = min + "-" + max;
-        message.textContent = "太小";
-        guessInput.valueAsNumber = null;
-        return;
-    } else if (guess === answer) {
+    }
+    if (guess === answer) {
         range.textContent = "恭喜答對"
         message.textContent = "答案是" + answer;
         guessBtn.textContent = "猜數字結束";
@@ -35,14 +28,26 @@ guessBtn.addEventListener("click", function () {
         guessInput.disabled = true;
         restartBtn.style.display = "block";
         return;
-    } else if (guess === min || guess === max) {
-        message.textContent = "重複輸入，請輸入" + min + "-" + max + "的數字";
-        guessInput.valueAsNumber = null;
+    }
+    if (guess <= max && guess >= answer) {
+        max = guess - 1;
+        range.textContent = min + "-" + max;
+        message.textContent = "太大";
+        guessInput.value = null;
         return;
     }
+    if (guess >= min && guess <= answer) {
+        min = guess + 1;
+        range.textContent = min + "-" + max;
+        message.textContent = "太小";
+        guessInput.value = null;
+        return;
+    }
+
+
     else {
         message.textContent = "請輸入" + min + "-" + max + "的數字";
-        guessInput.valueAsNumber = null;
+        guessInput.value = null;
     }
 
 });
@@ -55,7 +60,7 @@ restartBtn.addEventListener("click", function () {
     restartBtn.style.display = "none";
     guessBtn.disabled = false;
     guessInput.disabled = false;
-    guessInput.valueAsNumber = null;
+    guessInput.value = null;
     min = 1;
     max = 100;
     range.textContent = min + "-" + max;
