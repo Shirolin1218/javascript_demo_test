@@ -6,7 +6,9 @@ const guessInput = document.querySelector(".input-guess");
 const guessBtn = document.querySelector("#guess-btn");
 const range = document.querySelector("#range");
 const message = document.querySelector("#message");
+let restartBtn = document.querySelector("#restart-btn");
 
+restartBtn.style.display = "none";
 let max = 100;
 let min = 1;
 guessBtn.addEventListener("click", function () {
@@ -30,6 +32,7 @@ guessBtn.addEventListener("click", function () {
         guessBtn.textContent = "猜數字結束";
         guessBtn.disabled = true;
         guessInput.disabled = true;
+        restartBtn.style.display = "block";
         return;
     }
     else {
@@ -37,4 +40,19 @@ guessBtn.addEventListener("click", function () {
         guessInput.valueAsNumber = null;
     }
 
+});
+
+restartBtn.addEventListener("click", function () {
+    console.log("restart");
+    answer = Math.floor(Math.random() * 100) + 1;
+    console.log(answer);
+    restartBtn.style.display = "none";
+    guessBtn.disabled = false;
+    guessInput.disabled = false;
+    guessInput.valueAsNumber = null;
+    min=1;
+    max=100;
+    range.textContent = min + "-" + max;
+    message.textContent = "按下按鈕開始猜吧";
+    guessBtn.textContent = "猜";
 });

@@ -27,4 +27,9 @@ header {
 .container .btn {
   margin: 10px;
   width: 120px;
+}
+.container #restart-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }/*# sourceMappingURL=style.css.map */
