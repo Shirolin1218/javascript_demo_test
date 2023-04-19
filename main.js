@@ -34,6 +34,9 @@ guessBtn.addEventListener("click", function () {
         guessInput.disabled = true;
         restartBtn.style.display = "block";
         return;
+    } else if (guess == min || guess == max) {
+        message.textContent = "重複輸入，請輸入" + min + "-" + max + "的數字";
+        guessInput.valueAsNumber = null;
     }
     else {
         message.textContent = "請輸入" + min + "-" + max + "的數字";
@@ -50,8 +53,8 @@ restartBtn.addEventListener("click", function () {
     guessBtn.disabled = false;
     guessInput.disabled = false;
     guessInput.valueAsNumber = null;
-    min=1;
-    max=100;
+    min = 1;
+    max = 100;
     range.textContent = min + "-" + max;
     message.textContent = "按下按鈕開始猜吧";
     guessBtn.textContent = "猜";
