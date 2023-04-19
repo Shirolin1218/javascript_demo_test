@@ -15,6 +15,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
   height: 300px;
   width: 300px;
   background-color: floralwhite;
@@ -32,4 +33,5 @@ header {
   position: absolute;
   right: 0;
   bottom: 0;
+  display: none;
 }/*# sourceMappingURL=style.css.map */

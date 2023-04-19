@@ -1,6 +1,3 @@
-// 自動生成答案
-let answer = Math.floor(Math.random() * 100) + 1;
-console.log(answer);
 
 const guessInput = document.querySelector(".input-guess");
 const guessBtn = document.querySelector("#guess-btn");
@@ -8,9 +5,13 @@ const range = document.querySelector("#range");
 const message = document.querySelector("#message");
 let restartBtn = document.querySelector("#restart-btn");
 
-restartBtn.style.display = "none";
+
+let answer = Math.floor(Math.random() * 100) + 1;// 自動生成答案
+console.log(answer);
 let max = 100;
 let min = 1;
+
+// 猜答案按鈕事件
 guessBtn.addEventListener("click", function () {
     console.log("click");
     let guess = guessInput.valueAsNumber;
@@ -26,7 +27,7 @@ guessBtn.addEventListener("click", function () {
         message.textContent = "太小";
         guessInput.valueAsNumber = null;
         return;
-    } else if (guess == answer) {
+    } else if (guess === answer) {
         range.textContent = "恭喜答對"
         message.textContent = "答案是" + answer;
         guessBtn.textContent = "猜數字結束";
@@ -34,9 +35,10 @@ guessBtn.addEventListener("click", function () {
         guessInput.disabled = true;
         restartBtn.style.display = "block";
         return;
-    } else if (guess == min || guess == max) {
+    } else if (guess === min || guess === max) {
         message.textContent = "重複輸入，請輸入" + min + "-" + max + "的數字";
         guessInput.valueAsNumber = null;
+        return;
     }
     else {
         message.textContent = "請輸入" + min + "-" + max + "的數字";
@@ -45,6 +47,7 @@ guessBtn.addEventListener("click", function () {
 
 });
 
+// 重新開始按鈕事件
 restartBtn.addEventListener("click", function () {
     console.log("restart");
     answer = Math.floor(Math.random() * 100) + 1;
